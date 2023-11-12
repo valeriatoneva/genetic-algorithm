@@ -5,6 +5,7 @@ import { Car } from './classes/Car.js';
 import { DNA } from './classes/DNA.js';
 import { Checkpoints } from './classes/Checkpoints.js';
 
+
 let population = [];
 let matingPool = [];
 
@@ -18,7 +19,7 @@ let checkpoints;
 let best;
 
 function preload() {
-  loadJSON("points.json", setupCheckpoints);
+  loadJSON('data/points.json', setupCheckpoints);
 }
 
 function setupCheckpoints(points) {
@@ -28,8 +29,8 @@ function setupCheckpoints(points) {
 function setup() {
   console.log('set up is working') 
   createCanvas(800, 800);
-  carImg = loadImage('car.png');
-  track = loadImage('track.png');
+  carImg = loadImage('images/car.png');
+  track = loadImage('images/track.png');
   for (let i = 0; i < POPULATION_COUNT; i++) {
     population.push(new Car());
   }
