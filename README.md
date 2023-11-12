@@ -4,6 +4,8 @@
 
 This project is a car simulation that utilizes genetic algorithms to evolve car behaviors over time. The simulation is built using the p5.js library and demonstrates the principles of genetic algorithms.
 
+![Alt text](/assets/images/screenshot.png)
+
 ## Features
 
 - **Simulation of Cars**: Cars navigate a track, learning over time to improve their performance.
