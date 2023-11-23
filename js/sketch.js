@@ -1,5 +1,3 @@
-console.log('koicho')
-
 import { TURN_MAX, POPULATION_COUNT, SPEED, SHOW_CHECKPOINTS, MUTATION_RATE } from './config.js';
 import { Car } from './classes/Car.js';
 import { DNA } from './classes/DNA.js';
@@ -18,7 +16,7 @@ let isFinished = false;
 let checkpoints;
 let best;
 
-function preload() {
+function preload() { // in p5.js, preload() is used to load external files before the rest of the program runs. Here, it loads the track layout
   loadJSON('data/points.json', setupCheckpoints);
 }
 
@@ -26,7 +24,7 @@ function setupCheckpoints(points) {
   checkpoints = new Checkpoints(points);
 }
 
-function setup() {
+function setup() {  // sets up the canvas, loads images, and initializes the car population
   console.log('set up is working') 
   createCanvas(800, 800);
   carImg = loadImage('images/car.png');
@@ -37,7 +35,7 @@ function setup() {
   goal = createVector(width / 2, 20);
 }
 
-function draw() {
+function draw() { // continuously updates the simulation - It handles car updates, checks for collisions, and manages the genetic algorithm process if the generation is finished
     console.log("Draw function is running.");
   background(147, 204, 76);
   image(track, 0, 0, 800, 800)
@@ -75,7 +73,7 @@ function draw() {
   myFrameCount++;
 }
 
-function checkWallCollisions() {
+function checkWallCollisions() { // checks if cars collide with walls
   for (let car of population) {
     let pixelRgb = get(car.pos.x, car.pos.y);
     if (pixelRgb[0] !== 147 && pixelRgb[0] !== 110) {
@@ -84,7 +82,7 @@ function checkWallCollisions() {
   }
 }
 
-function naturalSelection() {
+function naturalSelection() { // selects the fittest cars to form a new mating pool
   matingPool = [];
   let bestCount = 0;
   for (let pop of population) {
@@ -108,7 +106,7 @@ function naturalSelection() {
 
 }
 
-function generate() {
+function generate() { // creates a new generation of cars using crossover and mutation from the mating pool
   for (let i = 0; i < population.length; i++) {
     let mummyIndex = floor(random(matingPool.length));
     let daddyIndex = floor(random(matingPool.length));

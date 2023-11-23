@@ -1,22 +1,22 @@
 export class Car {
     constructor() {
       this.carImg = carImg;
-      this.velocity = p5.Vector.random2D();
-      this.genotype = new DNA();
-      this.r = 15;
+      this.velocity = p5.Vector.random2D(); // random init direction 
+      this.genotype = new DNA(); // dna obj 
+      this.r = 15; // r - car size 
       this.index = 0;
-      this.pos = createVector(width/2, height - 325);
-      this.angle = 0;
-      this.rotateAmount = 0;
-      this.alive = true;
-      this.currentCheckpoint = 0;
+      this.pos = createVector(width/2, height - 325); // pos - starting point
+      this.angle = 0; // orientation and rotation
+      this.rotateAmount = 0; // orientation and rotation
+      this.alive = true; 
+      this.currentCheckpoint = 0; // progress tracking 
     }
     
     die() {
       this.alive = false;
     }
     
-    draw() {
+    draw() { // renders the car on the canvas, if the car is 'dead', it doesn't render; special rendering for the 'best' car (the green car)
       if (!this.alive) return;
   
       
@@ -32,7 +32,7 @@ export class Car {
       pop();
     }
     
-    update() {
+    update() { // updates the car's position and angle based on its velocity and genotype and increments the index for the next move
       if (!this.alive) return;
       this.pos.x -= SPEED * cos(this.angle);
       this.pos.y -= SPEED * sin(this.angle);
@@ -45,17 +45,17 @@ export class Car {
       this.genotype.calcFitness(this.currentCheckpoint);
     }
     
-    crossover(partner) {
+    crossover(partner) { // creates a new Car instance with a genotype that is a mix of this car and a partner's, representing genetic crossover
       let childCar = new Car();
       childCar.genotype = this.genotype.crossover(partner.genotype);
       return childCar;
     }
     
-    fitness() {
+    fitness() { // returns fitness value 
       return this.genotype.fitness;
     }
     
-    mutate(mutationRate) {
+    mutate(mutationRate) { // aplies mutatuons to the car's genotype
       this.genotype.mutate(mutationRate);
     }
   }
