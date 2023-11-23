@@ -2,8 +2,7 @@
 
 ## Overview
 
-Hi, I'm taking my time to write this doc because I know I will forget what I've done at some point. (sorry if it is overly explainatory)
-This project is a car simulation that utilizes genetic algorithms to evolve car behaviors over time. It's built using p5.js library and demonstrates the principles of genetic algorithms. Now, I know this sounds complex (for noramal not so nerdy people) but it's not. If you should know one thing about this project it is that basically there are checkpoints and if the car drives over a checkpoint their score increments.
+Taking my time to write this down because, let's face it, I'll probably forget all this later. So, this project's about a car simulation that gets smarter over time using what's called genetic algorithms. It's all done with this p5.js library, which is pretty cool for showing off these algorithm tricks. Now, it might sound like rocket science, but it's actually pretty simple. Here's the deal: there are these checkpoints, right? Every time a car nails one, bam, their score goes up. Simple as that. For now.
 
 ## What are genetic algorithms?
 
@@ -39,7 +38,7 @@ This project requires no special installations if run in a web browser. It uses 
 - `css/style.css`: Contains styles for the application.
 
 ## Room for improvement
-By gen 250, the best car should loop through the track (yes, I've watched it that long). But now, what if I want to export the genes for the car that reached the end and put it onto another track? It’d be useless. Why? Because the steering/dna is specific to this current track. If we want to create a general-purpose self-driving racing car that can be plonked onto any track then we’re going to need something a little more than a genetic algorithm, we’re going to need a Neural Network (to be continued).
+So, by the time we hit generation 250, the top car is basically doing laps around the track (yeah, I've actually watched it that long). But here's the thing – what if I want to grab the winning car's genes and drop it into a new track? Won't work. Why not? Because the way it steers – its DNA – is tailored to the current track only. If we're aiming to build a super versatile self-driving race car that can handle any track, we need to level up from just genetic algorithms. What we need next is a Neural Network. Stay tuned for more on that.
 
 ## License
 This project is licensed under the MIT License - see the `LICENSE` file for details.
